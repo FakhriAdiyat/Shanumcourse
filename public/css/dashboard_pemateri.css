@@ -1,0 +1,209 @@
+/* Styling umum untuk body */
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background-color: #84e2fa !important;
+}
+
+/* Sidebar styling */
+.sidebar {
+    position: fixed; /* Menempel ke sisi kiri */
+    top: 0; /* Dimulai dari atas halaman */
+    left: 0;
+    height: 100vh; /* Tinggi 100% dari viewport */
+    width: 250px; /* Lebar sidebar */
+    background-color: #ffc107; /* Warna latar kuning */
+    padding: 20px 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
+    z-index: 1000; /* Pastikan di atas konten lainnya */
+}
+
+.sidebar h3 {
+    margin: 0 0 20px 0;
+    font-size: 20px;
+    font-weight: bold;
+    color: #333;
+    text-align: left;
+}
+
+/* Sidebar menu styling */
+.sidebar ul {
+    list-style: none;
+    padding: 0;
+}
+
+.sidebar .nav-item {
+    margin-bottom: 20px;
+    position: relative;
+}
+
+.sidebar .nav-link {
+    color: #333;
+    text-decoration: none;
+    font-size: 16px;
+    display: flex;
+    align-items: center;
+    padding: 10px;
+    border-radius: 5px;
+    transition: all 0.3s ease;
+    position: relative;
+}
+
+.sidebar .nav-link i {
+    margin-right: 10px; /* Spasi antara ikon dan teks */
+    font-size: 18px; /* Ukuran ikon */
+}
+
+.sidebar .nav-link:hover {
+    background-color: #ffecb3;
+    color: #000;
+}
+
+/* After-effect animasi garis */
+.sidebar .nav-link::after {
+    content: "";
+    position: absolute;
+    height: 3px;
+    width: 0;
+    background-color: #000;
+    left: 0;
+    bottom: 0;
+    transition: width 0.3s ease;
+}
+
+.sidebar .nav-link:hover::after {
+    width: 100%;
+}
+
+
+/* Content wrapper */
+.content-wrapper {
+    margin-left: 270px; /* Offset to accommodate sidebar */
+    padding: 20px;
+}
+
+.content-wrapper .search-bar {
+    margin-bottom: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.content-wrapper .search-bar input {
+    width: calc(100% - 100px);
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.content-wrapper .search-bar button {
+    padding: 10px 20px;
+    border: none;
+    background-color: #007bff;
+    color: white;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.content-wrapper .search-bar button:hover {
+    background-color: #0056b3;
+}
+
+/* Cards grid layout */
+.cards-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+}
+
+.card {
+    background: white;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    text-align: center;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.15);
+}
+
+.card h4 {
+    font-size: 18px;
+    margin-bottom: 10px;
+}
+
+.card p {
+    font-size: 14px;
+    margin-bottom: 15px;
+    color: #555;
+}
+
+.card button {
+    padding: 10px 15px;
+    border: none;
+    border-radius: 5px;
+    color: white;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.card button.btn-primary {
+    background-color: #007bff;
+}
+
+.card button.btn-primary:hover {
+    background-color: #0056b3;
+}
+
+.card button.btn-danger {
+    background-color: #dc3545;
+}
+
+.card button.btn-danger:hover {
+    background-color: #c82333;
+}
+
+.card button.btn-success {
+    background-color: #28a745;
+}
+
+.card button.btn-success:hover {
+    background-color: #218838;
+}
+
+.card button.btn-warning {
+    background-color: #ffc107;
+}
+
+.card button.btn-warning:hover {
+    background-color: #e0a800;
+}
+
+.main-footer {
+    display: flex; /* Aktifkan Flexbox */
+    justify-content: space-between; /* Pisahkan teks dan GIF */
+    align-items: center; /* Pusatkan teks secara vertikal */
+    background-color: #f8d7da; /* Warna latar (opsional) */
+    padding: 20px;
+    font-family: Arial, sans-serif;
+    color: purple; /* Warna teks */
+    height: 100px; /* Pastikan ada tinggi untuk footer */
+}
+
+.main-footer p {
+    margin: 0 auto; /* Pastikan teks berada di tengah secara horizontal */
+    text-align: center; /* Pastikan teks rata tengah */
+    flex: 1; /* Biarkan teks memenuhi ruang yang tersisa */
+}
+
+.main-footer img {
+    max-width: 50px; /* Atur ukuran maksimal GIF */
+    height: auto; /* Pertahankan rasio aspek */
+}
