@@ -11,7 +11,7 @@ if ($conn->connect_error) {
     die("Koneksi gagal: " . $conn->connect_error);
 }
 
-// Ambil jadwal dari database
+// Ambil jadwal dari database berdasarkan pemateri
 $sql = "SELECT * FROM jadwal WHERE email_pemateri = ?";
 $stmt = $conn->prepare($sql);
 $stmt->bind_param("s", $_SESSION['email']);
@@ -53,25 +53,25 @@ $stmt->close();
             text-decoration: underline;
         }
         .main-footer {
-            display: flex; /* Aktifkan Flexbox */
-            justify-content: space-between; /* Pisahkan teks dan GIF */
-            align-items: center; /* Pusatkan teks secara vertikal */
-            background-color: #007bff; /* Warna latar (opsional) */
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background-color: #007bff;
             padding: 20px;
             font-family: Arial, sans-serif;
-            color: white; /* Warna teks */
-            height: 100px; /* Pastikan ada tinggi untuk footer */
+            color: white;
+            height: 100px;
         }
 
         .main-footer p {
-            margin: 0 auto; /* Pastikan teks berada di tengah secara horizontal */
-            text-align: center; /* Pastikan teks rata tengah */
-            flex: 1; /* Biarkan teks memenuhi ruang yang tersisa */
+            margin: 0 auto;
+            text-align: center;
+            flex: 1;
         }
 
         .main-footer img {
-            max-width: 50px; /* Atur ukuran maksimal GIF */
-            height: auto; /* Pertahankan rasio aspek */
+            max-width: 50px;
+            height: auto;
         }
         .card {
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
@@ -94,7 +94,7 @@ $stmt->close();
 </div>
 
 <div class="nav-menu">
-    <a href="./../dashboard_pemateri.php">Home</a>
+    <a href="./../dashboard_user.php">Home</a>
     <a href="jadwal.php">Jadwal</a>
     <a href="./../logout.php">Logout</a>
 </div>
@@ -123,12 +123,16 @@ $stmt->close();
                                 <td><?php echo htmlspecialchars($row['waktu']); ?></td>
                                 <td><?php echo htmlspecialchars($row['created_at']); ?></td>
                                 <td>
-                                    <a href="edit_jadwal.php?id=<?php echo $row['id']; ?>" class="btn btn-warning btn-sm">
-                                        <i class="fas fa-edit"></i> Edit
-                                    </a>
-                                    <a href="hapus_jadwal.php?id=<?php echo $row['id']; ?>" class="btn btn-danger btn-sm" onclick="return confirm('Yakin ingin menghapus jadwal ini?')">
-                                        <i class="fas fa-trash"></i> Hapus
-                                    </a>
+                                    <?php if ($_SESSION['role'] == 'pemateri'): ?>
+                                        <a href="edit_jadwal.php?id=<?php echo $row['id']; ?>" class="btn btn-warning btn-sm">
+                                            <i class="fas fa-edit"></i> Edit
+                                        </a>
+                                        <a href="hapus_jadwal.php?id=<?php echo $row['id']; ?>" class="btn btn-danger btn-sm" onclick="return confirm('Yakin ingin menghapus jadwal ini?')">
+                                            <i class="fas fa-trash"></i> Hapus
+                                        </a>
+                                    <?php else: ?>
+                                        <span class="text-muted">Tidak ada aksi</span>
+                                    <?php endif; ?>
                                 </td>
                             </tr>
                         <?php endforeach; ?>
@@ -143,11 +147,11 @@ $stmt->close();
     </div>
 </div>
 
-    <footer class="main-footer">
-        <p>&copy; 2024 Shanum Course Team. All rights reserved.<br>
-        Contact us: support@shanumcourse.com | +62 899-XXX-XXXX</p>
-        <img src="./../img/footer2.gif" alt="Footer GIF" width="100">
-    </footer>
+<footer class="main-footer">
+    <p>&copy; 2024 Shanum Course Team. All rights reserved.<br>
+    Contact us: support@shanumcourse.com | +62 899-XXX-XXXX</p>
+    <img src="./../img/footer2.gif" alt="Footer GIF" width="100">
+</footer>
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/js/all.min.js"></script>

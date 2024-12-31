@@ -186,6 +186,17 @@ body {
     background-color: #e0a800;
 }
 
+.cards-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+}
+
+.cards-grid .card:nth-child(3) {
+    grid-column: span 2; /* Jadwal memakan seluruh baris berikutnya */
+}
+
+
 .main-footer {
     display: flex; /* Aktifkan Flexbox */
     justify-content: space-between; /* Pisahkan teks dan GIF */
@@ -207,3 +218,32 @@ body {
     max-width: 50px; /* Atur ukuran maksimal GIF */
     height: auto; /* Pertahankan rasio aspek */
 }
+
+/* Pastikan body dan html memiliki tinggi penuh */
+html, body {
+    height: 100%;
+}
+
+/* Wrapper utama agar footer selalu di bawah */
+.content-wrapper {
+    min-height: calc(100vh - 100px); /* Sesuaikan tinggi footer */
+    margin-left: 270px; /* Sesuaikan dengan sidebar */
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+/* Styling untuk footer */
+.main-footer {
+    position: relative; /* Tetap mengikuti konten */
+    bottom: 0;
+    width: 100%; /* Ubah lebar footer agar menyesuaikan dengan layar penuh */
+    margin-left: 0; /* Atur posisi kiri sejajar dengan sidebar */
+    background-color: #f8d7da; /* Warna latar belakang footer */
+    display: flex;
+    justify-content: space-between; /* Pisahkan teks dan GIF */
+    align-items: center; /* Pusatkan teks secara vertikal */
+    padding: 20px;
+    height: 100px;
+    box-sizing: border-box; /* Tambahkan padding ke dalam lebar elemen */
+}
+

@@ -78,7 +78,7 @@ if (isset($_GET['status'])) {
         <h3>User Dashboard</h3>
         <a href="../public/user/profile.php"><i class="fas fa-user"></i> Profil</a>
         <!-- <a href="../public/user/tasks-quizzies.php"><i class="fas fa-tasks"></i> Tugas & Kuis</a> -->
-        <a href="../public/pemateri/jadwal.php"><i class="fas fa-calendar-alt"></i> Jadwal</a>
+        <a href="../public/user/jadwal.php"><i class="fas fa-calendar-alt"></i> Jadwal</a>
         <!-- <a href="../public/user/progress.php"><i class="fas fa-chart-line"></i> Progres Belajar</a> -->
         <a href="../public/user/notifications.php"><i class="fas fa-bell"></i> Notifikasi</a>
         <a href="../public/user/halaman_payment.php"><i class="fas fa-credit-card"></i> Pembayaran</a>
